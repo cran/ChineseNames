@@ -49,7 +49,7 @@ By default, it computes all available name indices:
   \item \code{NC}: name competence (1~5).
 }
 
-For details, see \url{https://github.com/psychbruce/ChineseNames}}
+For details, see \url{https://psychbruce.github.io/ChineseNames/}}
 
 \item{NU.approx}{Whether to \emph{approximately} compute name-character uniqueness (NU)
 using \emph{the nearest two birth cohorts with relative weights}
@@ -91,36 +91,36 @@ or just input a vector of full names
 is estimated by forecasting and thereby may not be accurate.
 }
 \note{
-For details and examples, see \url{https://github.com/psychbruce/ChineseNames}
+For details and examples, see \url{https://psychbruce.github.io/ChineseNames/}
 }
 \section{Citation}{
 
-Bao, H.-W.-S. (2021). ChineseNames: Chinese Name Database 1930-2008.
-R package version 1.1.1.
+Bao, H.-W.-S. (2023). ChineseNames: Chinese Name Database 1930-2008.
+R package version 2023.8.
 \url{https://CRAN.R-project.org/package=ChineseNames}
 
 Bao, H.-W.-S., Cai, H., Jing, Y., & Wang, J. (2021).
 Novel evidence for the increasing prevalence of unique names in China:
-A reply to Ogihara (2020). \emph{Frontiers in Psychology, 12}, 731244.
-\url{https://www.frontiersin.org/articles/10.3389/fpsyg.2021.731244/full}
+A reply to Ogihara. \emph{Frontiers in Psychology, 12}, 731244.
+\doi{10.3389/fpsyg.2021.731244}
 }
 
 \examples{
 ## Prepare ##
-sn=familyname$surname[1:12]
-gn=c(top100name.year$name.all.1960[1:6],
-     top100name.year$name.all.2000[1:6],
-     top100name.year$name.all.1960[95:100],
-     top100name.year$name.all.2000[95:100])
-demodata=data.frame(name=paste0(sn, gn),
-                    birth=c(1960:1965, 2000:2005,
-                            1960:1965, 2000:2005))
-# View(demodata)
+sn = familyname$surname[1:12]
+gn = c(top100name.year$name.all.1960[1:6],
+       top100name.year$name.all.2000[1:6],
+       top100name.year$name.all.1960[95:100],
+       top100name.year$name.all.2000[95:100])
+demodata = data.frame(name=paste0(sn, gn),
+                      birth=c(1960:1965, 2000:2005,
+                              1960:1965, 2000:2005))
+demodata
 
 ## Compute ##
-newdata=compute_name_index(demodata,
-                           var.fullname="name",
-                           var.birthyear="birth")
-# View(newdata)
+newdata = compute_name_index(demodata,
+                             var.fullname="name",
+                             var.birthyear="birth")
+newdata
 
 }
